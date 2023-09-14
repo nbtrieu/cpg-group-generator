@@ -15,7 +15,7 @@ code {
 :root {
   --primary: #5cfcff;
   --secondary: #F1F1F1;
-  --tertiary: #2a2a2a;
+  --tertiary: #141523;
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
   --spacing-three: calc(4rem);
@@ -33,6 +33,10 @@ h4,
 h5,
 h6 {
   font-family: 'Inter', sans-serif;
+}
+
+p {
+  color: var(--secondary);
 }
 
 .text-center {
@@ -336,13 +340,6 @@ input {
     max-width: 100% !important;
   }
 
-  input {
-    width: 100% !important;
-  }
-
-  .comment-box textarea {
-    width: 94% !important;
-  }
 
   .submit-wrapper {
     margin-top: 100px;

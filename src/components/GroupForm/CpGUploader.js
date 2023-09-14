@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Papa from 'papaparse';
 import axios from 'axios';
 
 const CpGUploader = () => {
@@ -26,15 +25,19 @@ const CpGUploader = () => {
         formData.append('cpgFile', file);
         formData.append('groupName', groupName);
 
-        const response = await axios.post('http://localhost:5000/run-import-cpg-data', formData, {
+        const response = await axios.post('http://localhost:5001/run-create-cpg-group', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             }
         });
-
-        console.log(response.data);
+        console.log('Made request to server.');
+        console.log('Server response:', response.data);
     } catch (error) {
         console.error("Error fetching data:", error);
+        if (error.response) {
+          console.error("Server responded with status:", error.response.status);
+          console.error("Server response data:", error.response.data);
+      }
     }
   };
 
@@ -53,28 +56,15 @@ const CpGUploader = () => {
   }
 
     try {
-      if (file) {
-        Papa.parse(file, {
-          complete: async (result) => {
-            console.log('Parsed Result:', result);
-            const cpGs = result.data.map(row => row[0]); // **PROVIDE TEMPLATE wherein FIRST column has the cpg names
-            console.log('CpGs:', cpGs);  
-            
-            // After parsing and possibly validating the file, send data to backend
-            await fetchData();
+      await fetchData();
+      setMessage('Your CpG group has been generated.');
+      setTimeout(() => {
+          setMessage('');
+          setFileName('');
+          setFile(null);
+          setGroupName('');
+      }, 5000);
 
-            // Once the file is successfully sent and processed, update the message and reset other states
-            setMessage('Your CpG group has been generated.');
-            setTimeout(() => {
-                setMessage('');
-                setFileName('');
-                setFile(null);
-                setGroupName('');
-            }, 5000);
-          },
-          header: false
-        });
-      } 
     } catch (error) {
       console.error('>>> handleFormSubmit error: ', error);
       setMessage(`Form was not submitted. ${error.message}`)
@@ -84,6 +74,9 @@ const CpGUploader = () => {
 
   return (
       <div className='form form-wrapper mx-4 my-3'>
+        <header className="title text-center my-3">
+          <h1>Make a CpG Group</h1>
+        </header>
         <div>
           <label>
             <h3>
@@ -92,13 +85,13 @@ const CpGUploader = () => {
           </label>
           <div className="file-input-wrapper">
             <label htmlFor="hiddenFileInput" className="custom-file-label">
-                {fileName || "No file chosen..."} 
+              {fileName || "No file chosen..."} 
             </label>
             <input
-                type="file"
-                id="hiddenFileInput"
-                onChange={handleFileChange}
-                className="hidden-input"
+              type="file"
+              id="hiddenFileInput"
+              onChange={handleFileChange}
+              className="hidden-input"
             />
           </div>
         </div>
