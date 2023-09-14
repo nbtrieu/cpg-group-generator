@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { capitalizeFirstLetter } from '../../utils/helpers';
+
 const healthFactorsJSON = require('../../data/healthFactors');
 
-export default function Checkboxes() {
+export default function Options({ onFactorsChange }) {
   let healthFactors = healthFactorsJSON.map(factor => factor.name);
-  console.log(healthFactors);
 
   const [selectedFactors, setSelectedFactors] = useState([]);
 
@@ -17,18 +18,23 @@ export default function Checkboxes() {
     });
   };
 
+  // Use useEffect to notify the parent component of changes
+  useEffect(() => {
+      onFactorsChange(selectedFactors);
+  }, [selectedFactors, onFactorsChange]);
+
   return (
     <div className="columns-container">
       {Array.from({ length: 3 }).map((_, columnIndex) => (
         <div key={columnIndex} className="column">
           {healthFactors.slice(columnIndex * 6, (columnIndex + 1) * 6).map(factor => (
-            <label key={factor} className="health-factor">
+            <label key={factor} className="health-factor mt-2">
               <input 
                 type="checkbox" 
                 checked={selectedFactors.includes(factor)} 
                 onChange={() => toggleFactor(factor)} 
               />
-              {factor}
+              <span className='options-text'>{capitalizeFirstLetter(factor)}</span>
             </label>
           ))}
         </div>

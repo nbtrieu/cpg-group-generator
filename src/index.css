@@ -78,6 +78,24 @@ button:hover {
   box-shadow: 0 5px 20px rgba(92, 181, 182, 0.4);
 }
 
+/* OPTIONS COLUMNS */
+
+.columns-container {
+  display: flex;
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.column {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.health-factor {
+  display: block;
+  margin-bottom: 10px;
+}
+
 .options-wrapper {
   width: 70% !important;
   margin: auto !important;
@@ -85,8 +103,6 @@ button:hover {
 
 .options-text {
   color: var(--secondary);
-  font-size: 1.25rem;
-  margin-left: -2.5rem !important;
 }
 
 .name-wrapper {
