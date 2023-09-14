@@ -33,6 +33,7 @@ h4,
 h5,
 h6 {
   font-family: 'Inter', sans-serif;
+  color: var(--secondary);
 }
 
 p {
@@ -51,7 +52,7 @@ p {
   font-size: 2.75rem;
   font-weight: 800;
   margin-bottom: 0;
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .form h3 {
@@ -60,7 +61,7 @@ p {
 }
 
 button {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
   text-decoration: none;
   color: var(--tertiary);
@@ -69,7 +70,32 @@ button {
   outline: none;
   cursor: pointer;
   background-color: var(--primary);
-  padding: 10px 40px;
+  padding: 10px 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 0 5px 20px rgba(92, 181, 182, 0.4);
+}
+
+.options-wrapper {
+  width: 70% !important;
+  margin: auto !important;
+}
+
+.options-text {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  margin-left: -2.5rem !important;
+}
+
+.name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 50% !important;
+  padding-top: 4rem;
+  margin: auto !important;
 }
 
 .form-wrapper {
@@ -89,7 +115,7 @@ button {
 }
 
 input {
-  width: 50%;
+  width: 30%;
 }
 
 .file-input-wrapper {
@@ -106,7 +132,7 @@ input {
 }
 
 .group-name-input {
-  display: inline-block;
+  flex-grow: 1;
   padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -202,6 +228,10 @@ input {
   margin-bottom: var(--spacing-three);
 }
 
+.mt-2 {
+  margin-top: var(--spacing-two);
+}
+
 .mt-3 {
   margin-top: var(--spacing-three);
 }
@@ -256,6 +286,12 @@ input {
 
 
 /* FLEX GRID */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -311,8 +347,13 @@ input {
 }
 
 .col-3 {
-  flex: 0 0 20%;
-  max-width: 20%;
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+
+.col-6 {
+  flex: 0 0 16%;
+  max-width: 16%;
 }
 
 /* MOBILE RESPONSIVE STYLING */
