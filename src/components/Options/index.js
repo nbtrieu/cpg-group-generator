@@ -1,1 +1,1 @@
-export { default } from './CheckBoxes'
+export { default } from './Options'

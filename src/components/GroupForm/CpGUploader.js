@@ -8,35 +8,35 @@ const CpGUploader = () => {
   const [message, setMessage] = useState();
 
   const handleFileChange = (event) => {
-      setFile(event.target.files[0]);
-      if (event.target.files.length) {
-        setFileName(event.target.files[0].name);
-      }
+    setFile(event.target.files[0]);
+    if (event.target.files.length) {
+      setFileName(event.target.files[0].name);
+    }
   };
 
   const handleNameChange = (event) => {
-      setGroupName(event.target.value);
-      // console.log("Current groupName state:", groupName);
+    setGroupName(event.target.value);
+    // console.log("Current groupName state:", groupName);
   };
 
   const fetchData = async () => {
     try {
-        const formData = new FormData();
-        formData.append('cpgFile', file);
-        formData.append('groupName', groupName);
+      const formData = new FormData();
+      formData.append('cpgFile', file);
+      formData.append('groupName', groupName);
 
-        const response = await axios.post('http://localhost:5001/run-create-cpg-group', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            }
-        });
-        console.log('Made request to server.');
-        console.log('Server response:', response.data);
+      const response = await axios.post('http://127.0.0.1:8000/cpgs/by-health-factors/', formData, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          }
+      });
+      console.log('Made request to server.');
+      console.log('Server response:', response.data);
     } catch (error) {
-        console.error("Error fetching data:", error);
-        if (error.response) {
-          console.error("Server responded with status:", error.response.status);
-          console.error("Server response data:", error.response.data);
+      console.error("Error fetching data:", error);
+      if (error.response) {
+        console.error("Server responded with status:", error.response.status);
+        console.error("Server response data:", error.response.data);
       }
     }
   };

@@ -1,57 +1,57 @@
 const healthFactors = [
     {
-      "name": "sleep"
+      "name": "Sleep"
     },
     {
-      "name": "exercise"
+      "name": "Exercise"
     },
     {
-      "name": "weight loss"
+      "name": "Weight loss"
     },
     {
-      "name": "obesity"
+      "name": "Obesity"
     },
     {
-      "name": "bmi"
+      "name": "BMI"
     },
     {
-      "name": "diet"
+      "name": "Diet"
     },
     {
-      "name": "diet/exercise"
+      "name": "Diet/exercise"
     },
     {
-      "name": "diabetes"
+      "name": "Diabetes"
     },
     {
-      "name": "inflammation"
+      "name": "Inflammation"
     },
     {
-      "name": "crohn's disease"
+      "name": "Crohn's disease"
     },
     {
-      "name": "breast cancer"
+      "name": "Breast cancer"
     },
     {
-      "name": "lymphatic-hematopoietic cancer"
+      "name": "Lymphatic-hematopoietic cancer"
     },
     {
-      "name": "solid cancer"
+      "name": "Solid cancer"
     },
     {
-      "name": "chemotherapy"
+      "name": "Chemotherapy"
     },
     {
-      "name": "radiation therapy"
+      "name": "Radiation therapy"
     },
     {
-      "name": "lung cancer"
+      "name": "Lung cancer"
     },
     {
-      "name": "bodyweight"
+      "name": "Bodyweight"
     },
     {
-      "name": "hunger"
+      "name": "Hunger"
     }
 ]
 
