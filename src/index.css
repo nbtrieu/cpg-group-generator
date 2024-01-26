@@ -41,6 +41,106 @@ p {
   color: var(--primary);
 }
 
+/* Styling for CSV Upload */
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-input {
+  width: 15% !important;
+}
+
+/* Styling for Filters component */
+.filter-component {
+  display: flex;
+  justify-content: center !important;
+}
+
+.filter-criteria-button {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-popup {
+  display: none; /* Hide the pop-up initially */
+  position: absolute; /* Absolute position relative to the parent */
+  z-index: 1000; /* Make sure it's on top */
+  width: 30%; /* Set the width of the pop-up */
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 50px; /* Space between the button and the pop-up */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  left: 0; /* Align the pop-up to the left side of the button */
+}
+
+/* This class should be added to the button's parent container */
+.filter-button-container {
+  display: flex;
+  text-align: center;
+}
+
+.filter-container {
+  max-height: 60vh; /* Limit the height of the pop-up */
+  overflow-y: auto; /* Make it scrollable */
+  padding: 10px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.filter-search {
+  /* Styles for the search input */
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align the checkbox and the select dropdown */
+  margin-bottom: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-left: 10px; /* Spacing between the checkbox and the label */
+  width: 100%;
+}
+
+.condition-selector {
+  margin-left: 10px; /* Spacing between the label and the condition selector */
+}
+
+.select {
+  /* Styles for the condition selector */
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+
+.clear-filters-btn, .save-filters-btn {
+  /* Styles for the action buttons */
+}
+
+.filter-criteria-button.active + .filter-popup {
+  display: block; /* Show the pop-up when the button is active */
+}
+
+
+
 .title h1 {
   font-size: 2.75rem;
   font-weight: 800;
@@ -337,12 +437,20 @@ input {
   margin-top: var(--spacing-three);
 }
 
+.mt-4 {
+  margin-top: 3rem;
+}
+
 .mb-2 {
   margin-bottom: var(--spacing-two);
 }
 
 .mb-3 {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-three);
+}
+
+.mb-4 {
+  margin-bottom: 3rem;
 }
 
 .px-1 {

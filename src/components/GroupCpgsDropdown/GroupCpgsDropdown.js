@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 // import Options from '../Options/Options';
 import Dropdown from '../Dropdown/Dropdown';
 
-import assocationCategories from '../../data/associationCategories';
+import associationCategories from '../../data/associationCategories';
 import searchFunctions from '../../data/searchFunctions';
 
-export default function GroupByHealthFactor() {
+export default function GroupCpgsDropdown() {
   const [groupName, setGroupName] = useState('');
   const [selectedFactors, setSelectedFactors] = useState([]);
   const [selectedFunction, setSelectedFunction] = useState([]);
@@ -59,7 +59,7 @@ export default function GroupByHealthFactor() {
 
   return (
     <div>
-      <header className='title text-center my-3'>
+      <header className='title text-center mt-4 mb-3'>
         <h1>Search Annotations</h1>
       </header>
       <div className=''>
@@ -68,7 +68,7 @@ export default function GroupByHealthFactor() {
           isMulti 
           isSearchable 
           placeHolder="Select..." 
-          options={assocationCategories}
+          options={associationCategories}
           onChange={setSelectedFactors}
         />
       </div>
